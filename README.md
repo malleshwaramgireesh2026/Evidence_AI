@@ -105,4 +105,81 @@ Groq LLaMA Response Generation
 
 Answer + Citations + Evaluation
 
+How It Works
+The user creates or selects a workspace.
+The user uploads one or more documents.
+Documents are loaded and split into chunks.
+Each chunk is converted into embeddings using HuggingFace embeddings.
+FAISS stores the vector index for semantic retrieval.
+The user asks a question or requests document comparison.
+Relevant chunks are retrieved from the vector index.
+Groq LLaMA generates an answer using only the retrieved context.
+The app displays the answer, source citations, relevance scores, and evaluation metrics.
+The user can download the chat history as an evidence trail.
+Evaluation Metrics
+EvidenceFlow AI includes lightweight answer evaluation:
+Grounding: Checks whether answer terms appear in retrieved source context.
+Relevance: Checks whether important question terms appear in the generated answer.
+Citation: Checks whether the answer includes document/page/source references.
+Completeness: Checks whether the answer has enough detail.
+Overall Score: Combined score from grounding, relevance, citation, and completeness.
+These metrics are practical guardrails for a demo system and are not a replacement for full human evaluation.
+Hallucination Guardrails
+The assistant is instructed to:
+Answer only from uploaded document context
+Say Insufficient information in provided documents when evidence is missing
+Avoid inventing facts, dates, numbers, policies, or conclusions
+Warn users when an answer has low confidence
+Warn users when citations may be missing
+Example Use Cases
+Research paper analysis
+Medical guideline Q&A
+Legal document comparison
+Policy document search
+Business report summarization
+Study note generation
+Contract or compliance review
+Setup
+Clone the repository:
+ 
+git clone https://github.com/YOUR_USERNAME/evidenceflow-ai.gitcd evidenceflow-ai
+Install dependencies:
+ 
+pip install -r requirements.txt
+Create a Groq API key from:
+ 
+https://console.groq.com/
+Set your API key:
+ 
+export GROQ_API_KEY="your_groq_api_key_here"
+For Windows PowerShell:
+ 
+$env:GROQ_API_KEY="your_groq_api_key_here"
+Run the app:
+ 
+streamlit run app.py
+Colab Usage
+Install dependencies:
+ 
+!pip install -q streamlit langchain langchain-community langchain-core langchain-groq langchain-huggingface langchain-text-splitters sentence-transformers faiss-cpu pypdf pyngrok
+Start Streamlit with ngrok:
+ 
+import osimport timeimport shutilimport subprocessfrom pathlib import Pathfrom pyngrok import ngrok workspace_root = Path("/content/rag_workspaces") if workspace_root.exists():     shutil.rmtree(workspace_root) workspace_root.mkdir(parents=True, exist_ok=True) os.system("pkill -f streamlit") ngrok.kill() time.sleep(3) process = subprocess.Popen(     [         "streamlit", "run", "app.py",         "--server.port", "8501",         "--server.headless", "true",         "--server.address", "0.0.0.0"    ],     stdout=subprocess.PIPE,     stderr=subprocess.PIPE ) time.sleep(10) ngrok.set_auth_token("YOUR_NGROK_TOKEN") public_url = ngrok.connect(addr="8501", proto="http") print(f"Open app: {public_url}")
+Folder Structure
+ 
+evidenceflow-ai/ │ ├── app.py ├── requirements.txt ├── README.md ├── assets/ │   └── evidenceflow-ui.png └── rag_workspaces/     └── generated at runtime
+Important Note
+EvidenceFlow AI answers only from uploaded documents and retrieved source passages. It can be wrong if the documents are incomplete, outdated, ambiguous, or poorly retrieved. Always verify important decisions against the original source files.
+Future Improvements
+Add DOCX and CSV support
+Add persistent database backend
+Add user authentication
+Add semantic evaluation using embedding similarity
+Add PDF export for evidence reports
+Add OCR support for scanned PDFs
+Add cloud deployment support
+License
+This project is for educational and portfolio purposes.
+ 
+ 
  
