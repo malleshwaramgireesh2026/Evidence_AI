@@ -104,7 +104,6 @@ Groq LLaMA Response Generation
         v
 
 Answer + Citations + Evaluation
-
 ## How It Works
  
 1. The user creates or selects a workspace.
