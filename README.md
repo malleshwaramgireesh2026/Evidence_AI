@@ -58,53 +58,7 @@ EvidenceFlow AI is a multi-document RAG platform built with LangChain, FAISS, Hu
 - PyPDF
  
 ## Project Architecture
- 
-```text
-
-User Uploads Documents
-
-        |
-
-        v
-
-Document Loader
-
-        |
-
-        v
-
-Text Chunking
-
-        |
-
-        v
-
-HuggingFace Embeddings
-
-        |
-
-        v
-
-FAISS Vector Index
-
-        |
-
-        v
-
-Semantic Retrieval
-
-        |
-
-        v
-
-Groq LLaMA Response Generation
-
-        |
-
-        v
-
-Answer + Citations + Evaluation
-```
+ <img src="assets/Architecture.png" width="900">
 
 ## How It Works
 
