@@ -178,7 +178,7 @@ The assistant is instructed to:
  
 Clone the repository:
  
-```bash
+bash
 
 git clone https://github.com/YOUR_USERNAME/evidenceflow-ai.git
 
