@@ -7,7 +7,7 @@ It lets users upload documents, build a searchable FAISS vector index, ask quest
  
 ## Application Preview
 
-<img src="assets/Architecture.png" width="900">
+<img src="assets/evidence_1.PNG" width="900">
  
 ## Project Highlight
  
