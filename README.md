@@ -250,17 +250,28 @@ print(f"Open app: {public_url}")
  
 
 ## Folder Structure
+ 
+```text
+
 evidenceflow-ai/
-   │
-   ├── app.py
 
-   ├── requirements.txt
-   ├── README.md
-   ├── assets/
-   │   └── evidenceflow-ui.png
-   └── rag_workspaces/
-       └── generated at runtime
+│
 
+├── app.py
+
+├── requirements.txt
+
+├── README.md
+
+├── assets/
+
+│   └── evidenceflow-ui.png
+
+└── rag_workspaces/
+
+    └── generated at runtime
+
+ ```
 ## Important Note
 
 EvidenceFlow AI answers only from uploaded documents and retrieved source passages.
