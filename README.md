@@ -182,8 +182,4 @@ Clone the repository:
 git clone https://github.com/YOUR_USERNAME/evidenceflow-ai.git
 
 cd evidenceflow-ai
-
- 
- 
- 
  
