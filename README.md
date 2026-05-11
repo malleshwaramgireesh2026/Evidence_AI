@@ -187,34 +187,67 @@ Run this in a Colab cell:
  !pip install -q streamlit langchain langchain-community langchain-core langchain-groq langchain-huggingface langchain-text-splitters sentence-transformers faiss-cpu pypdf pyngrok
 
 ### 2. Start Streamlit with ngrok
+## Colab Usage
+ 
+```python
 
-Run this in a Colab cell:
 import os
+
 import time
+
 import shutil
+
 import subprocess
+
 from pathlib import Path
+
 from pyngrok import ngrok
+ 
 workspace_root = Path("/content/rag_workspaces")
+ 
 if workspace_root.exists():
-shutil.rmtree(workspace_root)
+
+    shutil.rmtree(workspace_root)
+ 
 workspace_root.mkdir(parents=True, exist_ok=True)
+ 
 os.system("pkill -f streamlit")
+
 ngrok.kill()
+
 time.sleep(3)
+ 
 process = subprocess.Popen(
- [ "streamlit", "run", "app.py",
- "--server.port", "8501",
- "--server.headless", "true",
- "--server.address", "0.0.0.0"
-],
-stdout=subprocess.PIPE,
-stderr=subprocess.PIPE
+
+    [
+
+        "streamlit", "run", "app.py",
+
+        "--server.port", "8501",
+
+        "--server.headless", "true",
+
+        "--server.address", "0.0.0.0"
+
+    ],
+
+    stdout=subprocess.PIPE,
+
+    stderr=subprocess.PIPE
+
 )
+ 
 time.sleep(10)
+ 
 ngrok.set_auth_token("YOUR_NGROK_TOKEN")
+
 public_url = ngrok.connect(addr="8501", proto="http")
+ 
 print(f"Open app: {public_url}")
+
+```
+
+ 
 
 ## Folder Structure
 evidenceflow-ai/
