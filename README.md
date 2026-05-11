@@ -7,7 +7,7 @@ It lets users upload documents, build a searchable FAISS vector index, ask quest
  
 ## Application Preview
  
-<img src="assets/evidenceflow-ui.png" alt="EvidenceFlow AI application preview" width="900">
+<img src="![Architecture Diagram](Architecture.png)" width="900">
  
 ## Project Highlight
  
