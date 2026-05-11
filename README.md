@@ -6,8 +6,8 @@ EvidenceFlow AI is a Streamlit-based multi-document RAG platform for source-grou
 It lets users upload documents, build a searchable FAISS vector index, ask questions from uploaded files, compare evidence across documents, inspect retrieved sources, evaluate answer quality, and export the full evidence trail.
  
 ## Application Preview
- 
-<img src="Architecture.png" width="900">
+
+<img src="assets/Architecture.png" width="900">
  
 ## Project Highlight
  
